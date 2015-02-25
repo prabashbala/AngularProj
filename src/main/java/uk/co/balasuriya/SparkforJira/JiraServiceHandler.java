@@ -32,7 +32,7 @@ public class JiraServiceHandler implements SparkApplication {
 
 		//add request header
 		con.setRequestProperty("User-Agent", USER_AGENT);
-		String userPassword = "Prabash.Balasuriya:chandima1";
+		String userPassword = "XXX:YYY";
 		String encoding = new sun.misc.BASE64Encoder().encode(userPassword.getBytes());
 		con.setRequestProperty("Authorization", "Basic " + encoding);
 
