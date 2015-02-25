@@ -1,4 +1,4 @@
-package uk.gov.birmingham.SparkforJira;
+package uk.co.balasuriya.SparkforJira;
 
 import static spark.Spark.get;
 
