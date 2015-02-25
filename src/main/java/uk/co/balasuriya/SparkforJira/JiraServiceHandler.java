@@ -10,51 +10,65 @@ import java.net.URL;
 import spark.servlet.SparkApplication;
 
 public class JiraServiceHandler implements SparkApplication {
-    
+
     private final String USER_AGENT = "Mozilla/5.0";
+    private final String GET_PROJECTS = "http://*******/project";
+    private final String GET_PROJECT = "http://*******/search?jql=project=";
+    private final String GET_ISSUES = "http://*******/issue/";
+    
+
     public void init() {
 
-	get("/hi", (request, response) -> {
-	  return  sendGet();
-	    //return "Hello World!";
-	});
+	get("/getProjects", (request, response) -> {
+	    return sendGet(GET_PROJECTS);
+	    // return "Hello World!";
+	    });
+
+	get("/getProject/:projectid", (request, response) -> {
+	    return sendGet(GET_PROJECT+request.params("projectid"));
+	    // return "Hello World!";
+	    });
+
+	get("/getIssue/:issueid", (request, response) -> {
+	    return sendGet(GET_ISSUES+request.params("issueid"));
+	    // return "Hello World!";
+	    });
+
     }
-  
-	private String sendGet() throws Exception {
-	    
-		String url = "http://sb-jira.brm.pri:8080/rest/api/latest/project";
 
-		URL obj = new URL(url);
-		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+    private String sendGet(String url) throws Exception {
 
-		// optional default is GET
-		con.setRequestMethod("GET");
+	/*String url = "http://*******project";*/
 
-		//add request header
-		con.setRequestProperty("User-Agent", USER_AGENT);
-		String userPassword = "XXX:YYY";
-		String encoding = new sun.misc.BASE64Encoder().encode(userPassword.getBytes());
-		con.setRequestProperty("Authorization", "Basic " + encoding);
+	URL obj = new URL(url);
+	HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-		int responseCode = con.getResponseCode();
-		System.out.println("\nSending 'GET' request to URL : " + url);
-		System.out.println("Response Code : " + responseCode);
+	// optional default is GET
+	con.setRequestMethod("GET");
 
-		BufferedReader in = new BufferedReader(
-		        new InputStreamReader(con.getInputStream()));
-		String inputLine;
-		StringBuffer response = new StringBuffer();
+	// add request header
+	con.setRequestProperty("User-Agent", USER_AGENT);
+	String userPassword = "***:***";
+	String encoding = new sun.misc.BASE64Encoder().encode(userPassword.getBytes());
+	con.setRequestProperty("Authorization", "Basic " + encoding);
 
-		while ((inputLine = in.readLine()) != null) {
-			response.append(inputLine);
-		}
-		in.close();
+	int responseCode = con.getResponseCode();
+	System.out.println("\nSending 'GET' request to URL : " + url);
+	System.out.println("Response Code : " + responseCode);
 
-		//print result
-		System.out.println(response.toString());
-		return response.toString();
+	BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+	String inputLine;
+	StringBuffer response = new StringBuffer();
 
+	while ((inputLine = in.readLine()) != null) {
+	    response.append(inputLine);
 	}
+	in.close();
 
+	// print result
+	System.out.println(response.toString());
+	return response.toString();
+
+    }
 
 }
