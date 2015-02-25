@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="displayProjects">
+<head>
+    <title>JIRA read only pages</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+</script>
+
+</head>
+<body>
+
+<div ng-controller="displayProjectsController">
+	<div class="list-group small">
+	  <a ng-repeat="project in projects" ng-click="$parent.selected = project" class="list-group-item" ng-class="{active:selected==project}"><span class="badge pull-right"> {{project.key}}</span>{{project.name}}</a>
+	</div>
+</div>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/angular-cookies.js"></script>
+<script src="js/angular-sanitize.js"></script>
+<script src="js/angular-resource.js"></script>
+
+<script src="scripts/app.js"></script>
+</body>
+</html>
