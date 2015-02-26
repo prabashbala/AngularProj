@@ -12,35 +12,13 @@
 </head>
 <body>
 
-<div ng-controller="displayProjectsController">
-	<div class="list-group small">
-	  <a ng-repeat="project in projects" ng-click="selectTab(project)" class="list-group-item" ng-class="{active:isSelected(project)}"><span class="badge pull-right"> {{project.key}}</span>{{project.name}}<span class="pagination-centered"> :-{{project.description}}</span></a>
-	</div>
-	
-	<ul class="list-group small">
-	  <li>
-		{{issuedetails.fields.issuetype.description}}
-	  </li>
-	    <li>
-		{{issuedetails.fields.project.name}}
-	  </li>
-	    <li>
-		{{issuedetails.fields.reporter.name}}		
-	  </li>
-	   <li>
-		{{issuedetails.fields.assignee.name}}		
-	  </li>
-	   <li>
-		{{issuedetails.fields.priority.name}}		
-	  </li>	  
-	<ul>
-	comment:
-	<div class="list-group small">
-	  <a ng-repeat="comment in issuedetails.fields.comment.comments" class="list-group-item">{{comment.key}}{{comment.name}}</span></a>
-	</div>
-	
-	
+<div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+        <li ng-class="{ active: isActive('/')}"><a href="/SparkForJira">Home</a></li>       
+    </ul>
 </div>
+
+<div ng-view></div>
 
 <script src="js/jquery.js"></script>
 <script src="js/angular.js"></script>

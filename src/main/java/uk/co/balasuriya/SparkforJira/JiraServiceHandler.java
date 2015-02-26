@@ -12,33 +12,30 @@ import spark.servlet.SparkApplication;
 public class JiraServiceHandler implements SparkApplication {
 
     private final String USER_AGENT = "Mozilla/5.0";
-    private final String GET_PROJECTS = "http://*******/project";
-    private final String GET_PROJECT = "http://*******/search?jql=project=";
-    private final String GET_ISSUES = "http://*******/issue/";
+    private final String GET_PROJECTS = "http://sb-jira.brm.pri:8080/rest/api/latest/project";
+    private final String GET_PROJECT = "http://sb-jira.brm.pri:8080/rest/api/latest/search?jql=project=";
+    private final String GET_ISSUES = "http://sb-jira.brm.pri:8080/rest/api/latest/issue/";
     
 
     public void init() {
 
 	get("/getProjects", (request, response) -> {
 	    return sendGet(GET_PROJECTS);
-	    // return "Hello World!";
 	    });
 
 	get("/getProject/:projectid", (request, response) -> {
 	    return sendGet(GET_PROJECT+request.params("projectid"));
-	    // return "Hello World!";
 	    });
 
 	get("/getIssue/:issueid", (request, response) -> {
 	    return sendGet(GET_ISSUES+request.params("issueid"));
-	    // return "Hello World!";
 	    });
 
     }
 
     private String sendGet(String url) throws Exception {
 
-	/*String url = "http://*******project";*/
+	/*String url = "http://sb-jira.brm.pri:8080/rest/api/latest/project";*/
 
 	URL obj = new URL(url);
 	HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -48,7 +45,7 @@ public class JiraServiceHandler implements SparkApplication {
 
 	// add request header
 	con.setRequestProperty("User-Agent", USER_AGENT);
-	String userPassword = "***:***";
+	String userPassword = "Prabash.Balasuriya:welcome1";
 	String encoding = new sun.misc.BASE64Encoder().encode(userPassword.getBytes());
 	con.setRequestProperty("Authorization", "Basic " + encoding);
 
