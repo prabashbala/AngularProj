@@ -55,24 +55,36 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 	$stateProvider
 	.state('home', {
 		url : "/home",
-		templateUrl : 'templates/show_projects.html',
-		controller : 'displayProjectsController',
+		views : {
+			"@" : { // here we are using absolute name targeting
+				templateUrl : 'templates/show_projects.html',
+				controller : 'displayProjectsController',
+			},
+		},
 		data : {
 			displayName : 'Home',
 		}
 	}).state('home.project', {
 		url : "^/project/:projectid",
-		template : '',
-		templateUrl : 'templates/show_issueslist.html',
-		controller : 'displayIssuesListController',
+		views : {
+			"@" : { // here we are using absolute name targeting
+				templateUrl : 'templates/show_issueslist.html',
+				controller : 'displayIssuesListController',
+			},
+		},
+		parent : 'home',
 		data : {
 			displayName : 'Project',
 		}
 	}).state('home.project.issue', {
 		url : "^/issue/:issueid",
-		template : '',
-		templateUrl : 'templates/show_issue.html',
-		controller : 'displayIssueController',
+		views : {
+			"@" : { // here we are using absolute name targeting
+				templateUrl : 'templates/show_issue.html',
+				controller : 'displayIssueController',
+			},
+		},
+		parent : 'home',
 		data : {
 			displayName : 'Issue',
 		}
