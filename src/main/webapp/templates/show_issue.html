@@ -1,40 +1,43 @@
 <div ng-controller="displayIssueController">
-  <table class="table">
-  <thead>
-	  <tr>
-		<th>Issue Details</th>
-		<th>#</th>
-	  </tr>
-	</thead>
-  <tr>
-    <td>Issue type: </td>
-    <td>{{issuedetails.fields.issuetype.description}}</td>
-  </tr>
-   <tr>
-    <td>Project Name: </td>
-    <td>{{issuedetails.fields.project.name}}</td>
-  </tr>
-   <tr>
-    <td>Reporter Name:</td>
-    <td>{{issuedetails.fields.reporter.name}}	</td>
-  </tr>
-   <tr>
-    <td>Assigne Name:</td>
-    <td>{{issuedetails.fields.assignee.name}}	</td>
-  </tr>
-   <tr>
-    <td>Priority</td>
-    <td>{{issuedetails.fields.priority.name}}</td>
-  </tr>
-   <tr>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Issue Details</th>
+				<th>#</th>
+			</tr>
+		</thead>
+		<tr>
+			<td>Issue type:</td>
+			<td>{{issuedetails.fields.issuetype.description}}</td>
+		</tr>
+		<tr>
+			<td>Project Name:</td>
+			<td>{{issuedetails.fields.project.name}}</td>
+		</tr>
+		<tr>
+			<td>Reporter Name:</td>
+			<td>{{issuedetails.fields.reporter.name}}</td>
+		</tr>
+		<tr>
+			<td>Assigne Name:</td>
+			<td>{{issuedetails.fields.assignee.name}}</td>
+		</tr>
+		<tr>
+			<td>Priority</td>
+			<td>{{issuedetails.fields.priority.name}}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
 
-      <h2>comment:</h2>
-	  
-     <li ng-repeat="comment in issuedetails.fields.comment.comments" class="list-group-item">{{comment.body}}</span><span class="badge pull-right"> {{comment.updateAuthor.name}}</span>
-  <span class="badge pull-right"> {{comment.updated | date:'MM/dd/yyyy @ h:mma'}}</span>  
-  </li>
+	<h2>comment:</h2>
+
+	<li ng-repeat="comment in issuedetails.fields.comment.comments"
+		class="list-group-item">{{comment.body}}</span><span
+		class="badge pull-right"> {{comment.updateAuthor.name}}</span> <span
+		class="badge pull-right"> {{comment.updated | date:'MM/dd/yyyy
+			@ h:mma'}}</span>
+	</li>
 </div>
