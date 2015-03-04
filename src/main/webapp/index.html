@@ -11,22 +11,30 @@
 
 </head>
 <body>
-
-<div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
-        <li ng-class="{ active: isActive('/')}"><a href="/SparkForJira">Home</a></li>       
-    </ul>
+<div class="container jumbotron bodyPadding">
+<div id="masthead">
+  <a title="Homepage" href="http://localhost:8080/SparkForJira">
+    <img alt="Welcome to birmingham.gov.uk" src="images/transparent.gif">
+  </a>
 </div>
 
+<ol class="breadcrumb">
+  <li><a href="/SparkForJira">Home</a></li>
+  <li><a href="#">2013</a></li>
+  <li class="active">November</li>
+</ol>
+<div ncy-breadcrumb></div>
 <div ng-view></div>
 
+</div>
 <script src="js/jquery.js"></script>
 <script src="js/angular.js"></script>
 <script src="js/angular-route.js"></script>
 <script src="js/angular-cookies.js"></script>
 <script src="js/angular-sanitize.js"></script>
 <script src="js/angular-resource.js"></script>
-
+<script src="js/angular-breadcrumb.min.js"></script>
+<script src="js/angular-ui-router.min.js"></script>
 <script src="scripts/app.js"></script>
 </body>
 </html>

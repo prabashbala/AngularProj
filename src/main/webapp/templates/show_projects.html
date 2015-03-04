@@ -1,0 +1,17 @@
+<div ng-controller="displayProjectsController">
+	<div href="#" class="alert alert-info">
+		<span class="glyphicon glyphicon-search"></span> Search:
+		<input ng-model="search.$" type="text" id="wherebox" name="othercity" value="" placeholder="What you are looking for.." maxlength="90" autocomplete="off" autocapitalize="off" autocorrect="off">
+	
+	</div>
+
+	<div class="list-group small">
+		<a
+			ng-repeat="project in projects | orderBy:'name' | filter:search"
+			ng-click="selectTab(project)" class="list-group-item"
+			ng-class="{active:isSelected(project)}"><span
+			class="badge pull-right"> {{project.key}}</span>{{project.name}} <span
+			class="badge float: right !important;">
+				{{project.projectCategory.name}}</span></a>
+	</div>
+</div>

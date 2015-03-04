@@ -1,0 +1,19 @@
+<div ng-controller="displayIssuesListController">
+    <div href="#" class="btn btn-info btn-lg">
+	<span class="glyphicon glyphicon-search"></span> 
+	Search: 
+	</div>
+	<input ng-model="search.$" type="text" id="wherebox" name="othercity" value="" placeholder="What you are looking for.." maxlength="90" autocomplete="off" autocapitalize="off" autocorrect="off">
+	
+	<div class="list-group small">
+	  <a ng-repeat="issue in issuelist | orderBy:'fields.status.name' | filter:search" 
+	  ng-click="selectIssueTab(issue)" 
+	  class="list-group-item" 
+	  ng-class="{active:isIssueSelected(issue)}">
+	  <span class="badge pull-right"> {{issue.key}}</span>
+	  <span class="badge pull-right">{{issue.fields.status.name}}</span>
+	  {{issue.fields.summary}}
+	  <span class="pagination-centered"> :-{{issue.fields.issuetype.description}}</span>
+	  </a>
+	</div>		
+</div>

@@ -42,17 +42,20 @@ app.config(['$routeProvider',
 
 app.controller('displayProjectsController', function($scope,$location,dataService) {
 	//get projects
+	$scope.isProjectsloaded=false;	
 	dataService.getProjects('getProjects').then(function(results) {
 		$scope.projects = results;
 	});
 
 	$scope.selectTab=function(setTab) {	
 		$scope.tab = setTab;		
-		$location.path("/issueslist/"+$scope.tab.id);		
+		$location.path("/issueslist/"+$scope.tab.id);	
+		$scope.isProjectsloaded=true;		
 	  };	  
 	  $scope.isSelected=function(checkTab) {	
 		return $scope.tab === checkTab;
-	  };	
+	  };
+	  
 });
 
 app.controller('displayIssuesListController', function($scope,$location,$routeParams,dataService) {
