@@ -18,14 +18,8 @@
   </a>
 </div>
 
-<ol class="breadcrumb">
-  <li><a href="/SparkForJira">Home</a></li>
-  <li><a href="#">2013</a></li>
-  <li class="active">November</li>
-</ol>
-<div ncy-breadcrumb></div>
-<div ng-view></div>
-
+<ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="templates/uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
+<div ui-view></div>
 </div>
 <script src="js/jquery.js"></script>
 <script src="js/angular.js"></script>
@@ -35,6 +29,7 @@
 <script src="js/angular-resource.js"></script>
 <script src="js/angular-breadcrumb.min.js"></script>
 <script src="js/angular-ui-router.min.js"></script>
+<script src="js/uiBreadcrumbs.js"></script>
 <script src="scripts/app.js"></script>
 </body>
 </html>
