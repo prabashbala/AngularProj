@@ -64,7 +64,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 		data : {
 			displayName : 'Home',
 		}
-	}).state('home.project', {
+	}).state('project', {
 		url : "^/project/:projectid",
 		views : {
 			"@" : { // here we are using absolute name targeting
@@ -76,7 +76,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 		data : {
 			displayName : 'Project',
 		}
-	}).state('home.project.issue', {
+	}).state('issue', {
 		url : "^/issue/:issueid",
 		views : {
 			"@" : { // here we are using absolute name targeting
@@ -84,7 +84,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 				controller : 'displayIssueController',
 			},
 		},
-		parent : 'home',
+		parent : 'project',
 		data : {
 			displayName : 'Issue',
 		}

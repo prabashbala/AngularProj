@@ -2,7 +2,7 @@
     text-decoration: line-through;
 }
 #masthead {
-background-image: url('../images/Welcome_Banner.png');
+background-image: url('../images/sbjiralogo.png');
 background-repeat: no-repeat;
 height: 50px !important;
 }
@@ -10,3 +10,9 @@ height: 50px !important;
 .bodyPadding{
     width: 1040px;
 	}
+	
+.list-group-item {
+	padding : 24px 15px;
+	margin-bottom : 10px;	
+}
+

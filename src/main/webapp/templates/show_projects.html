@@ -15,8 +15,7 @@
 				</thead>
 				<tbody>
 			  <tr ng-repeat="project in projects | orderBy:'name' | filter:search"
-					ng-click="selectTab(project)"
-					ng-class="{active:isSelected(project)}">
+					ng-click="selectTab(project)">
 				<td>{{project.projectCategory.name}}</td>
 				<td>{{project.name}}</td>
 				<td>{{project.key}}</td>	
